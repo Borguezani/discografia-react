@@ -13,7 +13,6 @@ export function AppRoutes(){
             <Route exact path="/" element={<AlbumsList/>}/>
             <Route exact path="/CreateAlbum" element={<CreateAlbum/>}/>
             <Route/>
-
         </Routes>
     </BrowserRouter>
     )

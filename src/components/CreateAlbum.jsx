@@ -1,24 +1,25 @@
 import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components"
-
+import { useNavigate } from "react-router-dom";
+axios.defaults.withCredentials = true;
 export function CreateAlbum(){
+    const navigate = useNavigate()
     const [title, setTitle] = useState('');
     const [artist, setArtist] = useState('');
     const [year, setYear] = useState('');
     const [image, setImage] = useState('');
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
-        
-        console.log('Submit');
         const album = {
             title,
             year,
             artist,
-            image
+            link_image: image
         }
-        console.log(album);
-        axios.post('http://127.0.0.1:8000/api/v1/albums', album)
+        await axios.post('http://127.0.0.1:8000/api/v1/albums', album).then(
+            navigate('/')
+        )
        }
     return(
         <ContainerForm>
