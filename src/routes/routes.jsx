@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { AlbumsList } from "../pages/AlbumsList"
 import { CreateAlbum } from "../components/CreateAlbum"
 import { NavBar } from "../components/NavBar"
+import { Album } from "../pages/Album"
+import { CreateTrack } from "../components/CreateTrack"
 
 
 export function AppRoutes(){
@@ -12,7 +14,8 @@ export function AppRoutes(){
         <Routes>
             <Route exact path="/" element={<AlbumsList/>}/>
             <Route exact path="/CreateAlbum" element={<CreateAlbum/>}/>
-            <Route/>
+            <Route exact path="/Album/:id" element={<Album/>}/>
+            <Route exact path="/CreateTrack/:id" element={<CreateTrack/>}/>
         </Routes>
     </BrowserRouter>
     )
