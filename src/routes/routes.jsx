@@ -14,7 +14,7 @@ export function AppRoutes(){
         <Routes>
             <Route exact path="/" element={<AlbumsList/>}/>
             <Route exact path="/CreateAlbum" element={<CreateAlbum/>}/>
-            <Route exact path="/Album/:id" element={<Album/>}/>
+            <Route exact path="/Album/:id/:AlbumTitle" element={<Album/>}/>
             <Route exact path="/CreateTrack/:id" element={<CreateTrack/>}/>
         </Routes>
     </BrowserRouter>

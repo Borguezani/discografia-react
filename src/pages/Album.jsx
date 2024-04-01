@@ -5,11 +5,11 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styled from "styled-components";
 import { PrimaryInputWSearchIcon } from "../components/SearchInput";
 import { useNavigate, useParams } from "react-router-dom";
+import { DeleteDialog } from "../components/DeleteDialog";
 
 
 export function Album(){
@@ -21,7 +21,7 @@ export function Album(){
         setSearchTracks(event);
     }
     const { id } = useParams();
-
+    const { AlbumTitle } = useParams();
     useEffect(() => {
         axios.get(`http://127.0.0.1:8000/api/v1/albums/${id}/tracks`).then((response) => {
             setTracks(response.data);
@@ -30,7 +30,7 @@ export function Album(){
       []);
       return (
         <FlexContainer>
-          <Title>Lista de Músicas do Álbum:</Title>
+          <Title>Lista de Músicas do Álbum {AlbumTitle}:</Title>
           <TagButton onClick={()=>{navigate(`/CreateTrack/${id}`)}}>Adicionar Música ao Álbum Atual</TagButton>
           <PrimaryInputWSearchIcon onChange={(e) => handleSearchTracks(e.target.value)} placeholder="Procurando uma Track específica?"/>
           <GridContainer>
@@ -52,10 +52,11 @@ export function Album(){
                   </Typography>
                 </CardContent>
                 <CardActions sx={{display: 'flex', justifyContent:'center'}}>
+                <DeleteDialog Id={track.id} config={"Música"}/>
                 </CardActions>
               </Card>
               </div>
-            ))) : (tracks.filter(track => track.title.toLowerCase().includes(searchTracks.toLowerCase())).map(track => (
+            ))) : (tracks.filter(track => track.title.toLowerCase().replace(/\s+/g, '').includes(searchTracks.toLowerCase().replace(/\s+/g, ''))).map(track => (
                 <div key={track.id} item xs={2} sm={4} md={4}>
               <Card  sx={{ maxWidth: 345 }}>
                 <CardMedia
@@ -72,6 +73,7 @@ export function Album(){
                   </Typography>
                 </CardContent>
                 <CardActions sx={{display: 'flex', justifyContent:'center'}}>
+                <DeleteDialog Id={track.id} config={"Música"}/>
                 </CardActions>
               </Card>
               </div>
@@ -79,6 +81,7 @@ export function Album(){
             
             )}
           </GridContainer>
+          <DeleteDialog Id={id} config={"Álbum"}/>
         </FlexContainer>
       );
     }
@@ -119,5 +122,4 @@ export function Album(){
         background-color: #4682B4; 
     }
 `
-    
     
