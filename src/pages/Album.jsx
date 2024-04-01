@@ -10,6 +10,7 @@ import styled from "styled-components";
 import { PrimaryInputWSearchIcon } from "../components/SearchInput";
 import { useNavigate, useParams } from "react-router-dom";
 import { DeleteDialog } from "../components/DeleteDialog";
+import { Tracks } from "../components/Tracks";
 
 
 export function Album(){
@@ -32,51 +33,13 @@ export function Album(){
         <FlexContainer>
           <Title>Lista de Músicas do Álbum {AlbumTitle}:</Title>
           <TagButton onClick={()=>{navigate(`/CreateTrack/${id}`)}}>Adicionar Música ao Álbum Atual</TagButton>
-          <PrimaryInputWSearchIcon onChange={(e) => handleSearchTracks(e.target.value)} placeholder="Procurando uma Track específica?"/>
+          <PrimaryInputWSearchIcon onChange={(e) => handleSearchTracks(e.target.value)} placeholder="Procurando uma Música específica?"/>
           <GridContainer>
             {!searchTracks ? (
             tracks.map((track) => (
-              <div key={track.id} item xs={2} sm={4} md={4}>
-              <Card  sx={{ maxWidth: 345 }}>
-                <CardMedia
-                  sx={{ height: 300 }}
-                  image={track.link_image}
-                  title="Album Image"
-                />
-                <CardContent >
-                  <Typography gutterBottom variant="h5" component="div">
-                    {track.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Link da Música: <a href={track.link} target="_blank" rel="noopener noreferrer">{track.title}</a>
-                  </Typography>
-                </CardContent>
-                <CardActions sx={{display: 'flex', justifyContent:'center'}}>
-                <DeleteDialog Id={track.id} config={"Música"}/>
-                </CardActions>
-              </Card>
-              </div>
+              <Tracks key={track.id} track={track}/>
             ))) : (tracks.filter(track => track.title.toLowerCase().replace(/\s+/g, '').includes(searchTracks.toLowerCase().replace(/\s+/g, ''))).map(track => (
-                <div key={track.id} item xs={2} sm={4} md={4}>
-              <Card  sx={{ maxWidth: 345 }}>
-                <CardMedia
-                  sx={{ height: 300 }}
-                  image={track.link_image}
-                  title="Album Image"
-                />
-                <CardContent >
-                  <Typography gutterBottom variant="h5" component="div">
-                    {track.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Link da Música: <a href={track.link} target="_blank" rel="noopener noreferrer">{track.title}</a>
-                  </Typography>
-                </CardContent>
-                <CardActions sx={{display: 'flex', justifyContent:'center'}}>
-                <DeleteDialog Id={track.id} config={"Música"}/>
-                </CardActions>
-              </Card>
-              </div>
+              <Tracks key={track.id} track={track}/>
             ))
             
             )}
@@ -111,7 +74,7 @@ export function Album(){
     color: #fff;
     padding: 8px 16px; 
     border: none;
-    margin-left: 5px;
+    margin-left: 30px;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
