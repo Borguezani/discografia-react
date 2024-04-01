@@ -3,7 +3,7 @@ import { DeleteDialog } from "./DeleteDialog";
 
 export function Tracks({track, setSearchTracks }){
     return(
-        <div item xs={2} sm={4} md={4}>
+        <div xs={2} sm={4} md={4}>
                   <Card sx={{ maxWidth: 345 }}>
                     <CardMedia
                       sx={{ height: 300 }}

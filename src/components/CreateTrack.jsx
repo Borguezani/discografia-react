@@ -25,12 +25,12 @@ export function CreateTrack(){
         <ContainerForm>
         <Form onSubmit={(e) => handleSubmit(e)}>
             <Label htmlFor="titulo">Nome da Música</Label>
-            <Inputs type="text" id="titulo" placeholder="Informe o Nome da Música:" onChange={(e)=>setTitle(e.target.value)}/>
+            <Inputs type="text" id="titulo" name="titulo" placeholder="Informe o Nome da Música:" onChange={(e)=>setTitle(e.target.value)}/>
             <Label htmlFor="link">Link da Música</Label>
-            <Inputs type="text" id="link" placeholder="Informe link para a Música:" onChange={(e)=>setLink(e.target.value)}/>
+            <Inputs type="text" id="link" name="link" placeholder="Informe link para a Música:" onChange={(e)=>setLink(e.target.value)}/>
             <Label htmlFor="link_image">Link da Imagem da Música:</Label>
-            <Inputs type="text" id="link_image" placeholder="Informe o Link da Imagem:" onChange={(e)=>setImage(e.target.value)}/>
-            <SendButton type="submit" id="link_image" placeholder="Enviar" />
+            <Inputs type="text" id="link_image" name="link_image" placeholder="Informe o Link da Imagem:" onChange={(e)=>setImage(e.target.value)}/>
+            <SendButton type="submit" id="submit_track_button" name='submit_track_button'  placeholder="Enviar" />
         </Form>
         </ContainerForm>
     )

@@ -25,14 +25,14 @@ export function CreateAlbum(){
         <ContainerForm>
         <Form onSubmit={(e) => handleSubmit(e)}>
             <Label htmlFor="titulo">Título:</Label>
-            <Inputs type="text" id="titulo" placeholder="Informe o Título do Álbum:" onChange={(e)=>setTitle(e.target.value)}/>
+            <Inputs type="text" id="titulo" name="titulo" placeholder="Informe o Título do Álbum:" onChange={(e)=>setTitle(e.target.value)}/>
             <Label htmlFor="artist">Artista:</Label>
-            <Inputs type="text" id="artist" placeholder="Informe o Artista:" onChange={(e)=>setArtist(e.target.value)}/>
+            <Inputs type="text" id="artist" name="artist" placeholder="Informe o Artista:" onChange={(e)=>setArtist(e.target.value)}/>
             <Label htmlFor="year">Ano:</Label>
-            <Inputs type="text" id="year" placeholder="Informe o Ano do Álbum:" onChange={(e)=>setYear(e.target.value)}/>
+            <Inputs type="text" id="year" name="year" placeholder="Informe o Ano do Álbum:" onChange={(e)=>setYear(e.target.value)}/>
             <Label htmlFor="link_image">Link da Imagem da Capa:</Label>
-            <Inputs type="text" id="link_image" placeholder="Informe o Link da Imagem:" onChange={(e)=>setImage(e.target.value)}/>
-            <SendButton type="submit" id="link_image" placeholder="Enviar" />
+            <Inputs type="text" id="link_image" name="link_image" placeholder="Informe o Link da Imagem:" onChange={(e)=>setImage(e.target.value)}/>
+            <SendButton type="submit" id="submit_album_button" name='submit_album_button' placeholder="Enviar" />
         </Form>
         </ContainerForm>
     )

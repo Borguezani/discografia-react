@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@
 
 export function Albums({ album, handleAlbums}){
     return(
-        <div item xs={2} sm={4} md={4}>
+        <div xs={2} sm={4} md={4}>
                   <Card sx={{ maxWidth: 345 }}>
                     <CardMedia
                       sx={{ height: 300 }}

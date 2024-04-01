@@ -1,16 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import styled from "styled-components";
 import { PrimaryInputWSearchIcon } from "../components/SearchInput";
 import { useNavigate } from "react-router-dom";
-import { DeleteDialog } from "../components/DeleteDialog";
 import { Albums } from "../components/Albums";
 import { Tracks } from "../components/Tracks";
 
@@ -50,11 +43,15 @@ export function AlbumsList() {
           onChange={(e) => setSearchAlbums(e.target.value)}
           placeholder="Procurando Álbum específico?"
           value={searchAlbums}
+          name='searchInputAlbum'
+          id='searchInputAlbum'
         />
         <PrimaryInputWSearchIcon
           onChange={(e) => setSearchTracks(e.target.value)}
           placeholder="Procurando Alguma Música?"
           value={searchTracks}
+          name='searchInputTrack'
+          id='searchInputTrack'
         />
       </SearchContainer>
 
@@ -97,7 +94,7 @@ const GridContainer = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 430px) {
+  @media (max-width: 550px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
