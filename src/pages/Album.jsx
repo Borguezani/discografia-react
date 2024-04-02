@@ -6,7 +6,8 @@ import { PrimaryInputWSearchIcon } from "../components/SearchInput";
 import { useNavigate, useParams } from "react-router-dom";
 import { DeleteDialog } from "../components/DeleteDialog";
 import { Tracks } from "../components/Tracks";
-
+axios.defaults.withCredentials = true;
+axios.defaults.withXSRFToken = true;
 export function Album() {
   const navigate = useNavigate();
   const [searchTracks, setSearchTracks] = useState("");
