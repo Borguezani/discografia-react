@@ -26,7 +26,7 @@ npm install
 npm run start
 ```
 - O seu projeto já vai estar rodando na porta http://localhost:3000/
-- Se preferir pode acessar o <a href="https://discografia-react.vercel.app/">Vercel App</a>
+- Se preferir pode acessar o <a href="https://discografia-react.vercel.app/" target='_blank'>Vercel App</a>
 - Lembre-se o servidor com a API deve estar rodando para a aplicação funcionar corretamente.
 
 ## Funcionamento
